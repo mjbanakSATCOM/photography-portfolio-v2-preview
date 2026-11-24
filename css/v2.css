@@ -502,3 +502,29 @@ body:has(> .quest-bg) .site-footer { position: relative; z-index: 1; }
   .hero-quest { min-height: 2.5em; display: flex; align-items: center; justify-content: center; }
 }
 .hero-content { width: 100%; }   /* fixed width: the verse arriving can't resize the stack */
+
+/* ---------- Rieven Uncial logo kit (Leaf Studio, v2): the horizontal
+   lockup, navy-on-light version, in the header and footer ---------- */
+.brand-lockup-pic { display: block; line-height: 0; }
+.brand-lockup-img { display: block; width: auto; height: 92px; }
+.brand-lockup:hover .brand-lockup-img { filter: drop-shadow(0 0 8px rgba(232, 196, 120, 0.45)); }
+.site-header { padding-top: 0.55rem; padding-bottom: 0.55rem; }
+.footer-lockup { height: 70px; }
+@media (max-width: 560px) {
+  .brand-lockup-img { height: 76px; }
+  .site-header { padding-top: 0.45rem; padding-bottom: 0.5rem; }
+  .footer-lockup { height: 64px; }
+}
+.home .site-header {      /* keeps the lockup clear of the drawing's tower */
+  background: linear-gradient(180deg, rgba(251, 247, 236, 0.97) 0%, rgba(251, 247, 236, 0.9) 62%, rgba(251, 247, 236, 0));
+}
+@media (max-width: 700px) {
+  .hero-content { padding-top: 12.9rem; }   /* clears the taller lockup header */
+}
+@media (max-width: 379px) {
+  .brand-lockup-img { height: 72px; }
+  .site-nav { gap: 0 0.8rem; }
+  .site-nav a { font-size: 0.84rem; }
+  .site-nav::before { content: ""; flex-basis: 100%; order: 1; height: 0; }
+  .site-nav a:nth-child(n+4) { order: 2; }
+}
