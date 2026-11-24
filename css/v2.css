@@ -538,3 +538,41 @@ body:has(> .quest-bg) .site-footer { position: relative; z-index: 1; }
       linear-gradient(180deg, rgba(251, 247, 236, 0) 80%, var(--ivory) 100%);
   }
 }
+
+/* ---------- Contact / thanks print: photo corners hold the photo's own corners ---------- */
+.contact-print { --pt: 3.45rem; --px: 3.25rem; --pb: 3.6rem; padding: var(--pt) var(--px) var(--pb); }
+@media (min-width: 700px) { .contact-print { --pt: 3.9rem; --px: 3.7rem; --pb: 4.1rem; } }
+@media (max-width: 480px) { .contact-print { --pt: 2.5rem; --px: 2.3rem; --pb: 2.65rem; } }
+.photo-corner {
+  --s: 1.75rem;
+  --o: calc(var(--s) * 0.3);           /* how far each corner wraps past the photo edge */
+  width: var(--s);
+  height: var(--s);
+  box-shadow: none;
+  filter: drop-shadow(0 1px 1.5px rgba(40, 26, 12, 0.35));
+}
+.photo-corner-tl { top: calc(var(--pt) - var(--o)); left: calc(var(--px) - var(--o)); bottom: auto; right: auto;
+  background: linear-gradient(to bottom right, #b39a6f 0%, #cdb48a 47%, #3d2a1a 47%, #3d2a1a 51.5%, transparent 51.5%); }
+.photo-corner-tr { top: calc(var(--pt) - var(--o)); right: calc(var(--px) - var(--o)); bottom: auto; left: auto;
+  background: linear-gradient(to bottom left, #b39a6f 0%, #cdb48a 47%, #3d2a1a 47%, #3d2a1a 51.5%, transparent 51.5%); }
+.photo-corner-bl { bottom: calc(var(--pb) - var(--o)); left: calc(var(--px) - var(--o)); top: auto; right: auto;
+  background: linear-gradient(to top right, #b39a6f 0%, #cdb48a 47%, #3d2a1a 47%, #3d2a1a 51.5%, transparent 51.5%); }
+.photo-corner-br { bottom: calc(var(--pb) - var(--o)); right: calc(var(--px) - var(--o)); top: auto; left: auto;
+  background: linear-gradient(to top left, #b39a6f 0%, #cdb48a 47%, #3d2a1a 47%, #3d2a1a 51.5%, transparent 51.5%); }
+@media (max-width: 480px) { .photo-corner { --s: 1.4rem; } }
+.hero-quest-more { white-space: nowrap; }
+@media (max-width: 700px) {
+  .hero-quest { display: block; min-height: 3.75em; }
+  .hero-quest-more { display: block; }
+}
+
+/* ---------- HD ruins behind the home chapters (sized per screen and density) ---------- */
+.portals-bg {
+  background-image: url("../images/v2/ruins-faded-1600.webp");
+  background-image: image-set(url("../images/v2/ruins-faded-800.avif") type("image/avif") 1x, url("../images/v2/ruins-faded-1600.avif") type("image/avif") 2x, url("../images/v2/ruins-faded-800.webp") type("image/webp") 1x, url("../images/v2/ruins-faded-1600.webp") type("image/webp") 2x);
+}
+@media (min-width: 701px) {
+  .portals-bg {
+    background-image: image-set(url("../images/v2/ruins-faded-1600.avif") type("image/avif") 1x, url("../images/v2/ruins-faded-3840.avif") type("image/avif") 2x, url("../images/v2/ruins-faded-1600.webp") type("image/webp") 1x, url("../images/v2/ruins-faded-3840.webp") type("image/webp") 2x);
+  }
+}
