@@ -6,7 +6,7 @@
   <title>Lantern &amp; Leaves Photography</title>
   <meta name="description" content="A photography portfolio with collections of city and architecture, landscapes, nature, portraits, and black and white work.">
   <link rel="canonical" href="https://lanternandleavesphotography.com/">
-  <meta name="theme-color" content="#0f1a14">
+  <meta name="theme-color" content="#fbf7ec">
   <link rel="preconnect" href="https://use.typekit.net" crossorigin>
   <link rel="preconnect" href="https://p.typekit.net" crossorigin>
   <link rel="preload" href="https://use.typekit.net/nyz3quq.css" as="style" crossorigin>
@@ -29,19 +29,20 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://lanternandleavesphotography.com/assets/brand/g4/og-image-1200x630.png?v=3">
   <link rel="stylesheet" href="css/style.css?v=mosaic2">
+  <link rel="stylesheet" href="css/v2.css?v=1">
   <style>html { scrollbar-gutter: stable; }</style>
   <script>(function(d){if(!window.matchMedia||!matchMedia("(prefers-reduced-motion: reduce)").matches){d.classList.add("fx");setTimeout(function(){if(!window.__forest)d.classList.remove("fx")},3000)}})(document.documentElement)</script>
 </head>
 <body class="home">
   <header class="site-header">
-    <a class="site-title brand-lockup" href="index.html" aria-current="page"><picture class="brand-wordmark-pic"><source type="image/webp" srcset="assets/brand/g4-fonts/wordmark-dark-500.webp 500w, assets/brand/g4-fonts/wordmark-dark-760.webp 760w" sizes="(max-width: 560px) 191px, 248px"><img class="brand-wordmark" src="assets/brand/g4-fonts/wordmark-dark-500.png" alt="Lantern &amp; Leaves Photography" width="500" height="142"></picture></a>
+    <a class="site-title brand-lockup" href="index.html" aria-current="page"><picture class="brand-mark-pic"><source type="image/webp" srcset="assets/brand/g4/mark-256.webp"><img class="brand-mark" src="assets/brand/g4/mark-256.png" alt="" width="176" height="256"></picture><picture class="brand-wordmark-pic"><source type="image/webp" srcset="assets/brand/v2/wordmark-ink-500.webp 500w, assets/brand/v2/wordmark-ink-760.webp 760w" sizes="(max-width: 560px) 177px, 230px"><img class="brand-wordmark" src="assets/brand/v2/wordmark-ink-500.png" alt="Lantern &amp; Leaves Photography" width="500" height="141"></picture></a>
     <nav class="site-nav" aria-label="Primary">
       <a href="index.html" aria-current="page">Home</a>
-      <a href="albums/black-white.html">Black &amp; White</a>
-      <a href="albums/city-architecture.html">City &amp; Architecture</a>
-      <a href="albums/landscapes.html">Landscapes</a>
-      <a href="albums/nature.html">Nature</a>
-      <a href="albums/portraits.html">Portraits</a>
+      <a href="albums/black-white.html"><span class="nav-book" aria-hidden="true">I</span>Black &amp; White</a>
+      <a href="albums/city-architecture.html"><span class="nav-book" aria-hidden="true">II</span>City &amp; Architecture</a>
+      <a href="albums/landscapes.html"><span class="nav-book" aria-hidden="true">III</span>Landscapes</a>
+      <a href="albums/nature.html"><span class="nav-book" aria-hidden="true">IV</span>Nature</a>
+      <a href="albums/portraits.html"><span class="nav-book" aria-hidden="true">V</span>Portraits</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -51,16 +52,18 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-bg" aria-hidden="true">
         <picture>
-          <source type="image/webp" srcset="images/hero/autumn-light.webp">
-          <img src="images/hero/autumn-light.jpg" alt="" width="2400" height="1410" fetchpriority="high">
+          <source media="(max-width: 700px)" type="image/webp" srcset="images/v2/hero-quest-phone.webp">
+          <source type="image/webp" srcset="images/v2/hero-quest-1280.webp 1280w, images/v2/hero-quest-1920.webp 1920w" sizes="100vw">
+          <img src="images/v2/hero-quest-1280.webp" alt="" width="1280" height="720" fetchpriority="high">
         </picture>
       </div>
       <div class="hero-veil" aria-hidden="true"></div>
-      <canvas class="motes" aria-hidden="true"></canvas>
       <div class="hero-content">
+        <img class="hero-grail" src="images/v2/grail-200.webp" alt="" width="168" height="200" aria-hidden="true">
         <picture class="hero-badge" aria-hidden="true"><source type="image/webp" srcset="assets/brand/g4/mark-hero-glow-512.webp 512w, assets/brand/g4/mark-hero-glow-1024.webp 1024w" sizes="(min-width: 1381px) 174px, (min-width: 913px) 12.6vw, 115px"><img class="hero-badge-img" src="assets/brand/g4/mark-hero-glow-1024.png" srcset="assets/brand/g4/mark-hero-glow-512.png 512w, assets/brand/g4/mark-hero-glow-1024.png 1024w" sizes="(min-width: 1381px) 174px, (min-width: 913px) 12.6vw, 115px" alt="" width="1024" height="1024" fetchpriority="high"></picture>
         <h1 class="hero-title" id="hero-title"><span class="hero-name">Lantern <span class="amp">&amp;</span> Leaves</span><span class="hero-sub">Photography</span></h1>
-        <div class="hero-rule" aria-hidden="true">&#10022;</div>
+        <img class="hero-rule-knot" src="images/v2/divider-knot.svg" alt="" width="320" height="32">
+        <p class="hero-quest">The Quest for the Ultimate Photograph</p>
         <p class="hero-tagline tagline">Wanderings in light and leaf</p>
         <div class="hq-line" aria-label="Verses and quotes"><blockquote class="hq-item"></blockquote></div>
       </div>
@@ -71,10 +74,14 @@
     <section class="album-section portals" id="galleries" aria-labelledby="galleries-title">
       <span class="portals-anchor" id="black-white" aria-hidden="true"></span>
       <div class="portals-bg" aria-hidden="true"></div>
+      <img class="chapters-beast chapters-stag" src="images/v2/emblem-stag.webp" alt="" width="216" height="240" loading="lazy">
+      <img class="chapters-beast chapters-lion" src="images/v2/emblem-lion.webp" alt="" width="198" height="240" loading="lazy">
       <div class="album-section-inner">
         <div class="album-copy">
-          <h2 id="galleries-title">The Galleries</h2>
-          <p class="album-subtitle">Choose a path into the forest</p>
+          <img class="chapters-grail" src="images/v2/grail-200.webp" srcset="images/v2/grail-200.webp 168w, images/v2/grail.webp 269w" sizes="96px" alt="" width="168" height="200" loading="lazy">
+          <h2 id="galleries-title">The Chapters of the Quest</h2>
+          <p class="album-subtitle">Five books of light. Choose a road and follow it.</p>
+          <p class="quest-intro">Every photograph here began the same way: a lantern lit, a road taken, and the hope that somewhere ahead the light would fall just right. These are the books of that quest, still being written.</p>
         </div>
         <div class="portal-grid">
         <a class="portal" href="albums/black-white.html" data-album="black-white" aria-label="Enter the Black &amp; White gallery">
@@ -82,7 +89,9 @@
             <picture><source class="portal-src" type="image/webp" srcset="images/black-white/bw-01-thumb.webp 600w, images/black-white/bw-01-thumb-900.webp 900w" sizes="(max-width: 560px) calc(1.862 * (100vw - 72px)), (max-width: 960px) calc(1.862 * (50vw - 64px)), calc(1.862 * min(352px, 30vw - 52px))"><img class="portal-img" src="images/black-white/bw-01-thumb.jpg" alt="Floodlit abbey ruins beneath a moonlit night sky" width="600" height="384" style="width:186.188%;height:119.16%;left:-43.094%;top:-9.58%" loading="lazy" decoding="async"></picture>
           </span></span>
           <span class="portal-text" style="--d: 0.0s">
+            <span class="portal-book">Book I</span>
             <span class="portal-name">Black &amp; White</span>
+            <span class="portal-sub">Light, shadow and texture</span>
           </span>
         </a>
         <a class="portal" href="albums/city-architecture.html" data-album="city-architecture" aria-label="Enter the City &amp; Architecture gallery">
@@ -90,7 +99,9 @@
             <picture><source class="portal-src" type="image/webp" srcset="images/city-architecture/img-0807-thumb.webp 600w, images/city-architecture/img-0807-thumb-900.webp 900w" sizes="(max-width: 560px) calc(1.492 * (100vw - 72px)), (max-width: 960px) calc(1.492 * (50vw - 64px)), calc(1.492 * min(352px, 30vw - 52px))"><img class="portal-img" src="images/city-architecture/img-0807-thumb.jpg" alt="An art gallery shopfront at night with paintings in the windows" width="600" height="464" style="width:149.159%;height:115.35%;left:-24.58%;top:-7.675%" loading="lazy" decoding="async"></picture>
           </span></span>
           <span class="portal-text" style="--d: 0.12s">
+            <span class="portal-book">Book II</span>
             <span class="portal-name">City &amp; Architecture</span>
+            <span class="portal-sub">Form, structure and light</span>
           </span>
         </a>
         <a class="portal" href="albums/landscapes.html" data-album="landscapes" aria-label="Enter the Landscapes gallery">
@@ -98,7 +109,9 @@
             <picture><source class="portal-src" type="image/webp" srcset="images/landscapes/img-2691-thumb.webp 600w, images/landscapes/img-2691-thumb-900.webp 900w" sizes="(max-width: 560px) calc(1.492 * (100vw - 72px)), (max-width: 960px) calc(1.492 * (50vw - 64px)), calc(1.492 * min(352px, 30vw - 52px))"><img class="portal-img" src="images/landscapes/img-2691-thumb.jpg" alt="Weathered gravestones on a grassy hilltop above the sea at sunset" width="600" height="464" style="width:149.159%;height:115.35%;left:-24.58%;top:-7.675%" loading="lazy" decoding="async"></picture>
           </span></span>
           <span class="portal-text" style="--d: 0.24s">
+            <span class="portal-book">Book III</span>
             <span class="portal-name">Landscapes</span>
+            <span class="portal-sub">Land, sky and open space</span>
           </span>
         </a>
         <a class="portal" href="albums/nature.html" data-album="nature" aria-label="Enter the Nature gallery">
@@ -106,7 +119,9 @@
             <picture><source class="portal-src" type="image/webp" srcset="images/nature/autumn-light-thumb.webp 600w, images/nature/autumn-light-thumb-900.webp 900w" sizes="(max-width: 560px) calc(1.915 * (100vw - 72px)), (max-width: 960px) calc(1.915 * (50vw - 64px)), calc(1.915 * min(352px, 30vw - 52px))"><img class="portal-img" src="images/nature/autumn-light-thumb.jpg" alt="Yellow autumn leaves on a branch glowing in sunlight" width="600" height="375" style="width:191.538%;height:119.711%;left:-45.769%;top:-9.855%" loading="lazy" decoding="async"></picture>
           </span></span>
           <span class="portal-text" style="--d: 0.0s">
+            <span class="portal-book">Book IV</span>
             <span class="portal-name">Nature</span>
+            <span class="portal-sub">Leaves, light and living things</span>
           </span>
         </a>
         <a class="portal" href="albums/portraits.html" data-album="portraits" aria-label="Enter the Portraits gallery">
@@ -114,7 +129,9 @@
             <picture><source class="portal-src" type="image/webp" srcset="images/portraits/img-0870-thumb.webp 600w, images/portraits/img-0870-thumb-900.webp 900w" sizes="(max-width: 560px) calc(1.408 * (100vw - 72px)), (max-width: 960px) calc(1.408 * (50vw - 64px)), calc(1.408 * min(352px, 30vw - 52px))"><img class="portal-img" src="images/portraits/img-0870-thumb.jpg" alt="An older man in a straw hat painting at an easel by the sea" width="600" height="488" style="width:140.761%;height:114.486%;left:-20.38%;top:-7.243%" loading="lazy" decoding="async"></picture>
           </span></span>
           <span class="portal-text" style="--d: 0.12s">
+            <span class="portal-book">Book V</span>
             <span class="portal-name">Portraits</span>
+            <span class="portal-sub">People and presence</span>
           </span>
         </a>
         </div>
@@ -152,15 +169,15 @@
   </main>
 
   <footer class="site-footer">
-    <picture class="footer-lockup-pic"><source type="image/webp" srcset="assets/brand/g4-fonts/lockup-dark-horizontal-480.webp 480w, assets/brand/g4-fonts/lockup-dark-horizontal-720.webp 720w" sizes="(max-width: 560px) 229px, 274px"><img class="footer-lockup" src="assets/brand/g4-fonts/lockup-dark-horizontal-480.png" alt="" width="480" height="210" loading="lazy"></picture>
+    <img class="footer-rule" src="images/v2/divider-knot.svg" alt="" width="320" height="32" loading="lazy"><picture class="footer-lockup-pic"><source type="image/webp" srcset="assets/brand/v2/lockup-ink-480.webp 480w, assets/brand/v2/lockup-ink-720.webp 720w" sizes="(max-width: 560px) 229px, 274px"><img class="footer-lockup" src="assets/brand/v2/lockup-ink-480.png" alt="" width="480" height="209" loading="lazy"></picture>
     <p class="visually-hidden">Lantern &amp; Leaves Photography</p>
     <p class="lsb-notice">Scripture quotations taken from the (LSB®) Legacy Standard Bible®, Copyright © 2021 by The Lockman Foundation. Used by permission. All rights reserved. Managed in partnership with Three Sixteen Publishing Inc. <a href="https://lsbible.org/" rel="noopener">LSBible.org</a> and <a href="https://316publishing.com/" rel="noopener">316publishing.com</a>.</p>
   </footer>
-  <script src="js/forest.js" defer></script>
+  <script src="js/quest.js?v=1" defer></script>
   <script>
   /* hero verses */
   (function (d) {
-    var s = d.createElement("script"); s.src = "js/hero-quotes.js?v=2"; d.body.appendChild(s);
+    var s = d.createElement("script"); s.src = "js/hero-quotes.js?v=4"; d.body.appendChild(s);
   })(document);
   </script>
 </body>

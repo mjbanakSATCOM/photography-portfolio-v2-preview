@@ -87,6 +87,30 @@
  {
   "t": "If what I see in my mind excites me, there is a good chance it will make a good photograph.",
   "r": "Ansel Adams"
+ },
+ {
+  "t": "In the midst of this blast entered a sunbeam more clearer by seven times than ever they saw day.",
+  "r": "Sir Thomas Malory, Le Morte d'Arthur"
+ },
+ {
+  "t": "My strength is as the strength of ten,\nBecause my heart is pure.",
+  "r": "Alfred, Lord Tennyson, Sir Galahad"
+ },
+ {
+  "t": "The old order changeth, yielding place to new,\nAnd God fulfils himself in many ways.",
+  "r": "Alfred, Lord Tennyson, Idylls of the King"
+ },
+ {
+  "t": "More things are wrought by prayer\nThan this world dreams of.",
+  "r": "Alfred, Lord Tennyson, Idylls of the King"
+ },
+ {
+  "t": "It seemed as though a silver veil\nWas shining over hill and vale",
+  "r": "Malcolm Guite, Galahad and the Grail"
+ },
+ {
+  "t": "Who knows what wonders might be met\nOn this midsummer morn.",
+  "r": "Malcolm Guite, Galahad and the Grail"
  }
 ];
 
@@ -94,7 +118,9 @@
   if (!hero) return;
   var FADE = 1200, HOLD = 7000, STAGGER = 3500;
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var sideMQ = window.matchMedia("(min-width: 1240px) and (min-height: 600px)");
+  // Version 2: one centred line under the title at every width (the side
+  // columns would sit on the hero illustration).
+  var sideMQ = window.matchMedia("(min-width: 100000px)");
 
   // Placement (desktop): verses lean left, quotes lean right. Spots above and
   // below the title block are used only when they keep the full CLEAR (~1.5in);

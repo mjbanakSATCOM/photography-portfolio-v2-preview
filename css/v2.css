@@ -1,0 +1,504 @@
+/* ==================================================================
+   Lantern & Leaves, Version 2: "The Quest for the Ultimate Photograph"
+   A bright, illuminated-manuscript theme layered over style.css:
+   ivory vellum, sage green and faded red, uncial headings, woodcut-ink
+   illustrations, knotwork mattes. Loaded after style.css on every page.
+   Fonts, all from the Adobe kit nyz3quq (loaded without blocking paint):
+   rieven-uncial for headings, chapter labels and illuminated initials;
+   warbler-text / warbler-deck for body text and italics; above-the-beyond
+   for the one-line "Lantern & Leaves" hero title, exactly as before.
+   ================================================================== */
+
+:root {
+  --ivory: #fbf7ec;
+  --vellum: #f4ecd9;
+  --leaf: #fffdf8;
+  --ink-green: #2f3b34;
+  --ink-mid: #4b574f;
+  --ink-faint: #737d72;
+  --sage: #8fa58a;
+  --sage-deep: #5c7759;
+  --rose: #b5574b;
+  --rose-deep: #9a4338;
+  --gold: #c9a55a;
+  --uncial: "rieven-uncial", "warbler-deck", Georgia, serif;
+
+  /* the base theme's names, re-pointed at the bright palette */
+  --moss: var(--ivory);
+  --moss-2: var(--ivory);
+  --night: var(--ivory);
+  --deep: var(--ivory);
+  --text: var(--ink-green);
+  --soft: var(--ink-mid);
+  --muted: var(--ink-faint);
+  --amber: var(--rose);
+  --amber-soft: rgba(181, 87, 75, 0.45);
+  --line: rgba(181, 87, 75, 0.2);
+  --focus: var(--rose-deep);
+}
+
+html { background: var(--ivory); color: var(--text); }
+body {
+  background:
+    radial-gradient(ellipse 70% 38% at 50% 0%, rgba(201, 165, 90, 0.08), transparent 70%),
+    var(--ivory);
+  background-attachment: scroll;
+}
+a { color: var(--ink-green); }
+a:hover { color: var(--rose); }
+::selection { background: rgba(143, 165, 138, 0.35); }
+
+/* ---------- Header: parchment bar, lantern + inked wordmark ---------- */
+.site-header {
+  background: rgba(251, 247, 236, 0.9);
+  border-bottom: 1px solid rgba(181, 87, 75, 0.16);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+.home .site-header {
+  background: linear-gradient(180deg, rgba(251, 247, 236, 0.92) 0%, rgba(251, 247, 236, 0.55) 70%, rgba(251, 247, 236, 0));
+  border-bottom-color: transparent;
+  box-shadow: none;
+}
+.home .site-header.is-scrolled {
+  background: rgba(251, 247, 236, 0.93);
+  border-bottom-color: rgba(181, 87, 75, 0.16);
+}
+.brand-lockup { flex-direction: row; align-items: center; gap: 0.65rem; }
+.brand-mark-pic { display: block; line-height: 0; }
+.brand-mark { display: block; width: auto; height: 56px; }
+.brand-wordmark { height: 58px; }
+.brand-lockup:hover .brand-wordmark { filter: none; }
+.brand-lockup:hover .brand-mark { filter: drop-shadow(0 0 8px rgba(201, 165, 90, 0.55)); }
+.site-nav a { color: var(--ink-mid); font-weight: 400; }
+.site-nav a:hover,
+.site-nav a[aria-current="page"] { color: var(--rose-deep); }
+.nav-book {
+  font-family: var(--uncial);
+  font-size: 0.74em;
+  color: var(--rose);
+  margin-right: 0.38em;
+  letter-spacing: 0.02em;
+}
+@media (max-width: 560px) {
+  .brand-mark { height: 44px; }
+  .brand-wordmark { height: 48px; }
+  .site-nav .nav-book { display: none; }   /* keeps the phone menu to two lines */
+}
+
+/* ---------- Headings: uncial, like the lettering of an old book ---------- */
+.album-copy h2,
+.page-header h1,
+.prose h1,
+.about-panel h1,
+.contact-print-body h1 {
+  font-family: var(--uncial);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.005em;
+  color: var(--ink-green);
+}
+.album-copy h2::before,
+.page-header h1::before { content: none; }
+.album-subtitle { color: var(--sage-deep); }
+
+/* Illuminated initials: an uncial capital in faded red inside a small
+   gilded, knotwork-cornered square (an SVG frame, no extra markup). */
+.quest-intro::first-letter,
+.about-panel h1 + p::first-letter {
+  float: left;
+  font-family: var(--uncial);
+  font-style: normal;
+  font-size: 3.2em;
+  line-height: 0.9;
+  color: var(--rose);
+  padding: 0.2em 0.2em 0.16em;
+  margin: 0.1em 0.55rem 0 0;
+  background: url("../images/v2/initial-frame.svg") center / 100% 100% no-repeat;
+}
+.page-header h1::first-letter {
+  color: var(--rose);
+  padding: 0 0.12em;
+  margin-right: 0.04em;
+  background: url("../images/v2/initial-frame.svg") center / 100% 100% no-repeat;
+}
+
+/* ---------- Home hero: the illustrated title page ---------- */
+.hero { background: var(--ivory); }
+.hero-bg { inset: 0; will-change: auto; }
+.hero-bg img { filter: none; object-position: 50% 100%; }
+.hero-veil {
+  background:
+    radial-gradient(ellipse 30% 36% at 50% 50%, rgba(251, 247, 236, 0.8), rgba(251, 247, 236, 0) 72%),
+    linear-gradient(180deg, rgba(251, 247, 236, 0) 80%, var(--ivory) 100%);
+}
+.hero-content { will-change: auto; padding-bottom: 3rem; }
+.hero-badge::before {   /* a gentle gold glow, like light on vellum */
+  background: radial-gradient(circle at 50% 52%, rgba(232, 196, 120, 0.4) 0%, rgba(232, 196, 120, 0.14) 40%, rgba(232, 196, 120, 0) 68%);
+}
+.hero-title { color: var(--ink-green); text-shadow: 0 0 22px rgba(251, 247, 236, 0.95), 0 0 6px rgba(251, 247, 236, 0.9); }
+.hero-title .amp { color: var(--rose); text-shadow: none; }
+.hero-sub { color: var(--sage-deep); text-shadow: 0 0 10px var(--ivory); }
+.hero-rule { display: none; }
+.hero-rule-knot { display: block; width: min(250px, 62vw); height: auto; margin: 1.15rem auto 0.8rem; }
+.hero-quest {
+  margin: 0;
+  font-family: var(--uncial);
+  font-size: clamp(1.2rem, 2.1vw, 1.65rem);
+  line-height: 1.25;
+  color: var(--rose-deep);
+  text-shadow: 0 0 14px var(--ivory), 0 0 4px var(--ivory);
+}
+.hero .hero-tagline {
+  margin-top: 0.35rem;
+  font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+  color: var(--sage-deep);
+  text-shadow: 0 0 12px var(--ivory);
+}
+.hq-item { text-shadow: 0 0 14px var(--ivory), 0 0 5px var(--ivory), 0 0 2px var(--ivory); }
+.hq-text { color: var(--ink-green); }
+.hq-ref { color: var(--rose-deep); }
+
+/* ---------- Home chapters (the album portals) ---------- */
+.album-section,
+.album-section:nth-child(even) { background: transparent; }
+.album-section::before { display: none; }
+.album-section::after { background: linear-gradient(90deg, transparent, rgba(181, 87, 75, 0.3), transparent); }
+.portals-bg {
+  background: url("../images/v2/ruins-faded-1600.webp") center 6rem / min(1500px, 150%) auto no-repeat;
+  opacity: 0.55;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 12%, #000 55%, transparent 85%);
+  mask-image: linear-gradient(180deg, transparent 0, #000 12%, #000 55%, transparent 85%);
+}
+.chapters-grail {
+  display: block;
+  width: 92px;
+  height: auto;
+  margin: 0 auto 0.5rem;
+  filter: drop-shadow(0 0 14px rgba(232, 196, 120, 0.45));
+}
+.quest-intro {
+  max-width: 34rem;
+  margin: 1.4rem auto 0;
+  font-size: 1.14rem;
+  line-height: 1.7;
+  color: var(--ink-mid);
+  text-align: left;
+}
+.chapters-beast {
+  position: absolute;
+  top: 5.5rem;
+  z-index: 0;
+  width: clamp(96px, 8.5vw, 128px);
+  height: auto;
+  opacity: 0.8;
+  pointer-events: none;
+}
+.chapters-stag { left: max(1.5rem, calc(50% - 31rem)); }
+.chapters-lion { right: max(1.5rem, calc(50% - 31rem)); transform: scaleX(-1); }
+@media (max-width: 960px) { .chapters-beast { display: none; } }
+
+.portal-frame {
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(60, 48, 28, 0.1), 0 10px 26px rgba(60, 48, 28, 0.13);
+}
+.portal-frame::after { background-color: transparent; }
+.portal-window { background: var(--vellum); outline: 1px solid rgba(181, 87, 75, 0.5); outline-offset: 6px; }
+.portal-frame::before {           /* knotwork at the corners of the red line */
+  content: "";
+  position: absolute;
+  inset: calc(5% - 13px);
+  inset: calc(5% - 6px - 7px);
+  z-index: 2;
+  pointer-events: none;
+  background:
+    url("../images/v2/knot.svg") left top / 14px 14px no-repeat,
+    url("../images/v2/knot.svg") right top / 14px 14px no-repeat,
+    url("../images/v2/knot.svg") left bottom / 14px 14px no-repeat,
+    url("../images/v2/knot.svg") right bottom / 14px 14px no-repeat;
+}
+.portal:hover .portal-frame,
+.portal:focus-visible .portal-frame,
+.portal.is-lit .portal-frame {
+  box-shadow: 0 0 0 1px rgba(201, 165, 90, 0.45), 0 0 24px rgba(232, 196, 120, 0.35), 0 14px 34px rgba(60, 48, 28, 0.18);
+}
+.portal-book {
+  display: block;
+  margin-bottom: 0.1rem;
+  font-family: var(--uncial);
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  color: var(--rose);
+}
+.portal-name { font-family: var(--uncial); color: var(--ink-green); font-size: clamp(1.4rem, 1.9vw, 1.65rem); }
+.portal-sub {
+  display: block;
+  margin-top: 0.2rem;
+  font-family: var(--accent-font);
+  font-style: italic;
+  font-size: 1.08rem;
+  color: var(--sage-deep);
+}
+.portal:focus-visible .portal-name { text-decoration-color: var(--rose); }
+
+/* ---------- Inner pages ---------- */
+.page-main { background: none; }
+.quest-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.6;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 22%, #000 80%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0, #000 22%, #000 80%, transparent 100%);
+}
+.quest-bg picture,
+.quest-bg img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; }
+.quest-bg.quest-bg-top {         /* album pages: ruins behind the chapter title only */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: auto;
+  height: min(32rem, 70vw);
+  opacity: 0.5;
+  -webkit-mask-image: linear-gradient(180deg, #000 0, #000 45%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 0, #000 45%, transparent 100%);
+}
+.page-main > .page-header,
+.page-main > .masonry,
+.page-main > .about-panel,
+.page-main > .contact-stage { position: relative; z-index: 1; }
+body:has(> .quest-bg) .page-main,
+body:has(> .quest-bg) .site-footer { position: relative; z-index: 1; }
+.contact-page .page-main {
+  background: none;
+  padding-top: clamp(2.5rem, 8vh, 5.5rem);
+  padding-bottom: clamp(3rem, 12vh, 7rem);
+}
+
+/* Album header: "Book I of the Quest" over an illuminated title */
+.chapter-book {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin: 0 0 0.6rem;
+  font-family: var(--accent-font);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--sage-deep);
+}
+.chapter-book span { font-family: var(--uncial); font-style: normal; color: var(--rose); letter-spacing: 0.05em; }
+.chapter-book::before,
+.chapter-book::after {
+  content: "";
+  width: clamp(2rem, 8vw, 5rem);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(181, 87, 75, 0.6));
+}
+.chapter-book::after { background: linear-gradient(90deg, rgba(181, 87, 75, 0.6), transparent); }
+.album-quote blockquote p { color: var(--ink-mid); }
+.album-quote figcaption { color: var(--rose-deep); }
+
+/* ---------- The gallery wall: white mattes with a faded-red line and
+   knotwork corners (CSS only; nothing baked into the photographs) ---------- */
+.masonry > a,
+.masonry.mosaic > a {
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(60, 48, 28, 0.12), 0 8px 22px rgba(60, 48, 28, 0.14);
+}
+.masonry > a::after,
+.masonry.mosaic > a::after,
+.masonry > a:hover::after,
+.masonry > a.is-lit::after { background-color: transparent; }
+.masonry.mosaic > a::after {      /* the line sits in the matte, just off the print */
+  outline: 1px solid rgba(181, 87, 75, 0.5);
+  outline-offset: calc(var(--m, 10px) * 0.38);
+}
+.masonry.mosaic > a::before {
+  --k: max(calc(var(--m, 10px) * 0.62), 9px);
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: calc(var(--m, 10px) * 0.62 - var(--k) / 2);
+  pointer-events: none;
+  background:
+    url("../images/v2/knot.svg") left top / var(--k) var(--k) no-repeat,
+    url("../images/v2/knot.svg") right top / var(--k) var(--k) no-repeat,
+    url("../images/v2/knot.svg") left bottom / var(--k) var(--k) no-repeat,
+    url("../images/v2/knot.svg") right bottom / var(--k) var(--k) no-repeat;
+}
+.masonry > a:hover,
+.masonry > a:focus-visible,
+.masonry > a.is-lit,
+.masonry.mosaic > a.is-feature {
+  box-shadow: 0 1px 2px rgba(60, 48, 28, 0.12), 0 10px 26px rgba(60, 48, 28, 0.16);
+}
+.masonry.mosaic > a:hover,
+.masonry.mosaic > a:focus-visible {
+  box-shadow: 0 0 0 1px rgba(201, 165, 90, 0.5), 0 0 22px rgba(232, 196, 120, 0.4), 0 12px 30px rgba(60, 48, 28, 0.2);
+}
+@media (max-width: 600px) {
+  .masonry.mosaic > a { box-shadow: 0 1px 2px rgba(60, 48, 28, 0.12), 0 4px 12px rgba(60, 48, 28, 0.14); }
+  .masonry.mosaic > a::after { background-color: transparent; }
+  .masonry.mosaic > a.is-lit,
+  .masonry.mosaic > a:focus-visible { box-shadow: 0 1px 2px rgba(60, 48, 28, 0.12), 0 4px 12px rgba(60, 48, 28, 0.14); }
+}
+
+/* ---------- Photo viewer: the print laid on bright vellum ---------- */
+.lightbox {
+  background:
+    radial-gradient(ellipse 60% 55% at 50% 48%, rgba(232, 196, 120, 0.12), transparent 70%),
+    var(--ivory);
+}
+.lightbox.is-dragging { background: rgba(251, 247, 236, calc(0.98 * var(--fade, 1))); }
+.lightbox-figure img { box-shadow: 0 1px 3px rgba(60, 48, 28, 0.14), 0 18px 50px rgba(60, 48, 28, 0.2); }
+.lightbox-caption { color: var(--ink-green); }
+.lightbox-count { color: var(--ink-faint); }
+.lightbox-btn { color: var(--ink-green); }
+.lightbox-btn:hover { color: var(--rose); text-shadow: none; }
+.lightbox-hint { background: rgba(255, 253, 248, 0.92); border-color: rgba(181, 87, 75, 0.3); color: var(--ink-mid); }
+@media (max-width: 700px), (pointer: coarse) and (max-height: 500px) {
+  .lightbox { background: var(--ivory); }
+  .lightbox-figure img { box-shadow: 0 1px 3px rgba(60, 48, 28, 0.12), 0 10px 30px rgba(60, 48, 28, 0.16); }
+  .lightbox-close { background: rgba(255, 253, 248, 0.85); box-shadow: 0 0 0 1px rgba(181, 87, 75, 0.25); }
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: linear-gradient(180deg, rgba(143, 165, 138, 0), rgba(143, 165, 138, 0.12)), var(--ivory);
+  border-top: 0;
+  color: var(--ink-faint);
+}
+.footer-rule { display: block; width: min(300px, 70vw); height: auto; margin: 0 auto 1.25rem; }
+.lsb-notice a { color: var(--ink-mid); }
+
+/* ---------- About: Mike's letter on a vellum leaf ---------- */
+.about-page .page-main { padding-top: 2rem; }
+.about-panel {
+  position: relative;
+  background: rgba(255, 253, 248, 0.94);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  border: 1px solid rgba(181, 87, 75, 0.18);
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(60, 48, 28, 0.08), 0 22px 50px rgba(60, 48, 28, 0.1);
+}
+.about-panel::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  pointer-events: none;
+  border: 1px solid rgba(181, 87, 75, 0.35);
+}
+.about-panel::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  pointer-events: none;
+  background:
+    url("../images/v2/knot.svg") left top / 18px 18px no-repeat,
+    url("../images/v2/knot.svg") right top / 18px 18px no-repeat,
+    url("../images/v2/knot.svg") left bottom / 18px 18px no-repeat,
+    url("../images/v2/knot.svg") right bottom / 18px 18px no-repeat;
+}
+.about-panel > * { position: relative; z-index: 1; }
+.about-panel p { color: var(--ink-mid); }
+.about-panel h2 { font-family: var(--uncial); font-style: normal; color: var(--rose-deep); }
+.about-panel .about-film-title { color: var(--ink-green); }
+.about-quote { border-left-color: rgba(181, 87, 75, 0.5); }
+.about-quote p { color: var(--ink-green); }
+.about-quote cite { color: var(--rose-deep); }
+.about-signoff { color: var(--ink-mid); }
+.about-signoff span { color: var(--rose); }
+.about-film-frame { border-color: rgba(181, 87, 75, 0.3); background: var(--vellum); box-shadow: 0 12px 32px rgba(60, 48, 28, 0.16); }
+.about-film-play { background: rgba(255, 253, 248, 0.8); border-color: rgba(181, 87, 75, 0.7); color: var(--rose); box-shadow: 0 0 22px rgba(232, 196, 120, 0.35); }
+.about-film-play:hover,
+.about-film-play:focus-visible { background: rgba(255, 253, 248, 0.95); box-shadow: 0 0 30px rgba(232, 196, 120, 0.55); }
+.prose a { color: var(--rose-deep); }
+
+/* ---------- Contact and thank-you: the aged photograph, brightened ---------- */
+.contact-page { --paper: #eee2c9; --paper-deep: #e4d3b2; }
+.contact-print { filter: drop-shadow(0 12px 22px rgba(60, 40, 18, 0.2)) drop-shadow(0 2px 5px rgba(60, 40, 18, 0.14)); }
+.contact-print-body h1 { color: var(--ink-green); }
+.contact-field input:focus,
+.contact-field textarea:focus { outline-color: var(--rose); border-bottom-color: var(--rose); }
+
+/* ---------- 404 ---------- */
+.lost-page .lost-panel h1 { font-family: var(--uncial); font-style: normal; color: var(--ink-green); }
+.lost-page .lost-panel .eyebrow { color: var(--rose); }
+.lost-trails .nav-book { display: inline; }
+
+/* ---------- v2 polish after the first screenshots ---------- */
+.hero-content { padding-top: 5.4rem; padding-bottom: 6.5rem; }
+.hero-grail {      /* the Grail with its rays, a soft glow, set above the lantern */
+  display: block;
+  width: clamp(46px, min(4.6vw, 7vh), 66px);
+  height: auto;
+  margin: 0 auto 0.35rem;
+  filter: drop-shadow(0 0 12px rgba(232, 196, 120, 0.55));
+}
+.hq-side { display: none !important; }
+.hero .hq-line {
+  display: flex; flex-direction: column; justify-content: center;
+  height: 8.2rem; max-width: 36rem; margin: 0.9rem auto 0; pointer-events: none;
+}
+.hero .hq-line .hq-text { font-size: 1.12rem; line-height: 1.45; }
+.hero .hq-line .hq-ref { margin-top: 0.4rem; }
+.hero .hq-line .hq-ref::before { display: none; }
+.hero-badge { width: clamp(84px, min(9.4vw, 14vh), 136px); }
+.hero-title { font-size: clamp(1.6rem, min(9vw, 9.4vh), 5rem); }
+.album-copy h2 { font-size: clamp(2.2rem, 3.6vw, 3.1rem); }
+.page-header h1 { margin-top: 0.9rem; }
+.portals-bg { opacity: 0.42; }
+.lost-page .lost-panel h1 + p::first-letter { float: none; font: inherit; color: inherit; padding: 0; margin: 0; background: none; }
+.contact-page { --paper: #f3e5c6; --paper-deep: #ead6ae; }
+
+/* Phones: the title page first, then the illustration beneath it as a
+   full-width plate (grail, knight and road), so nothing sits under the menu
+   or behind the verses. */
+@media (max-width: 700px) {
+  .hero { height: auto; min-height: 0; flex-direction: column; justify-content: flex-start; }
+  .hero-content { order: 1; padding-top: 9.4rem; padding-bottom: 0; }
+  .hero-bg { position: relative; inset: auto; order: 2; z-index: 0; width: 100%; margin-top: -1.5rem; }
+  .hero-bg picture, .hero-bg img { height: auto; }
+  .hero-bg img {
+    -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 22%, #000 82%, transparent 100%);
+    mask-image: linear-gradient(180deg, transparent 0, #000 22%, #000 82%, transparent 100%);
+  }
+  .hero-veil { display: none; }
+}
+@media (min-width: 701px) {
+  .hero { min-height: 640px; }
+}
+@media (min-width: 701px) {
+  /* the title stack sits in the open sky; the rotating verse rests on the
+     faded foreground below the knight's road */
+  .hero-content { padding-top: 4.5rem; padding-bottom: 12.5rem; }
+  .hero .hq-line {
+    position: absolute;
+    left: 50%;
+    bottom: clamp(0.6rem, 2.2vh, 1.6rem);
+    width: min(38rem, 90vw);
+    height: 6.6rem;
+    margin: 0;
+    transform: translateX(-50%);
+  }
+  .hero-veil {
+    background:
+      radial-gradient(ellipse 30% 34% at 50% 42%, rgba(251, 247, 236, 0.8), rgba(251, 247, 236, 0) 72%),
+      linear-gradient(180deg, rgba(251, 247, 236, 0) 74%, rgba(251, 247, 236, 0.9) 88%, var(--ivory) 100%);
+  }
+}
+.contact-page { --paper: #f6ecd4; --paper-deep: #efdfbd; }
+.contact-print-body::before { opacity: 0.14; }
+@media (max-width: 560px) {
+  .about-panel h1 { font-size: 2.15rem; }
+  .page-header h1 { font-size: 2.4rem; }
+}
+@media (max-width: 560px) {
+  /* rieven-uncial sets this line on two lines on phones; reserve them so the
+     fallback serif (one line) doesn't shift the page when the kit arrives */
+  .hero-quest { min-height: 2.5em; display: flex; align-items: center; justify-content: center; }
+}
+.hero-content { width: 100%; }   /* fixed width: the verse arriving can't resize the stack */
