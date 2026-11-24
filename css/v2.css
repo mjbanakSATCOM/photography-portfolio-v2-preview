@@ -528,3 +528,13 @@ body:has(> .quest-bg) .site-footer { position: relative; z-index: 1; }
   .site-nav::before { content: ""; flex-basis: 100%; order: 1; height: 0; }
   .site-nav a:nth-child(n+4) { order: 2; }
 }
+@media (min-width: 701px) {
+  /* Fade the castle tower out behind the header lockup (top-left of the drawing). */
+  .hero-veil {
+    background:
+      radial-gradient(ellipse 30% 34% at 9% 0%, var(--ivory) 0%, var(--ivory) 52%, rgba(251, 247, 236, 0) 100%),
+      linear-gradient(180deg, var(--ivory) 0, var(--ivory) 96px, rgba(251, 247, 236, 0) 170px),
+      radial-gradient(ellipse 30% 36% at 50% 50%, rgba(251, 247, 236, 0.8), rgba(251, 247, 236, 0) 72%),
+      linear-gradient(180deg, rgba(251, 247, 236, 0) 80%, var(--ivory) 100%);
+  }
+}
