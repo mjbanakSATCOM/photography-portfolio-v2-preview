@@ -618,3 +618,15 @@ body:has(> .quest-bg) .site-footer { position: relative; z-index: 1; }
   .site-nav a { font-size: 0.85rem; }
 }
 .hero-quest-more { display: block; }
+
+/* ---------- Hero centre logo: the Rieven kit wordmark art under the glowing mark ---------- */
+.hero-title-kit { font-size: 1rem; line-height: 0; }
+.hero-title-kit .hero-wordmark-pic { display: block; white-space: normal; }
+.hero-wordmark {
+  display: block;
+  width: min(46rem, 56vw);
+  height: auto;
+  margin: 0.2rem auto 0;
+  filter: drop-shadow(0 0 14px rgba(251, 247, 236, 0.95)) drop-shadow(0 0 4px rgba(251, 247, 236, 0.9));
+}
+@media (max-width: 700px) { .hero-wordmark { width: 88vw; max-width: 26rem; } }
