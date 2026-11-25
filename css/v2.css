@@ -576,3 +576,45 @@ body:has(> .quest-bg) .site-footer { position: relative; z-index: 1; }
     background-image: image-set(url("../images/v2/ruins-faded-1600.avif") type("image/avif") 1x, url("../images/v2/ruins-faded-3840.avif") type("image/avif") 2x, url("../images/v2/ruins-faded-1600.webp") type("image/webp") 1x, url("../images/v2/ruins-faded-3840.webp") type("image/webp") 2x);
   }
 }
+
+/* ---------- Rieven brand title in the hero (live text, matches the Rieven logo kit) ---------- */
+.hero-title { font-size: clamp(2rem, min(7.6vw, 8.6vh), 4.7rem); line-height: 1.04; }
+.hero-title .hero-name {
+  font-family: "rieven-uncial", "warbler-deck", Georgia, serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.005em;
+  word-spacing: 0.04em;
+  color: #012350;
+}
+.hero-title .amp {
+  font-family: "rieven-uncial", "warbler-deck", Georgia, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1em;
+  color: #d9a441;
+  text-shadow: 0 0 18px rgba(251, 247, 236, 0.95);
+}
+.hero-sub {
+  margin-top: 0.3rem;
+  font-family: "rieven-roman", "warbler-deck", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(0.86rem, 2.05vw, 1.42rem);
+  letter-spacing: 0.26em;
+  margin-right: -0.26em;          /* keeps the spaced caps optically centred */
+  color: #a87720;
+}
+/* Tablet / small laptop: keep the lockup and the whole menu on one row (checked at 1024). */
+@media (min-width: 1000px) and (max-width: 1379px) {
+  .site-header { padding-left: 1.6rem; padding-right: 1.6rem; }
+  .brand-lockup-img { height: 66px; }
+  .site-nav { column-gap: 0.85rem; }
+  .site-nav a { font-size: 0.88rem; }
+}
+@media (min-width: 1000px) and (max-width: 1179px) {
+  .site-header { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .brand-lockup-img { height: 62px; }
+  .site-nav { column-gap: 0.72rem; }
+  .site-nav a { font-size: 0.85rem; }
+}
+.hero-quest-more { display: block; }
