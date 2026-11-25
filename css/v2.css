@@ -630,3 +630,22 @@ body:has(> .quest-bg) .site-footer { position: relative; z-index: 1; }
   filter: drop-shadow(0 0 14px rgba(251, 247, 236, 0.95)) drop-shadow(0 0 4px rgba(251, 247, 236, 0.9));
 }
 @media (max-width: 700px) { .hero-wordmark { width: 88vw; max-width: 26rem; } }
+
+/* ---------- Hero verse: legible ink on a soft vellum glow (AA contrast over the drawing) ---------- */
+.hero .hq-line { isolation: isolate; }
+.hero .hq-line::before {
+  content: "";
+  position: absolute;
+  inset: -1.1rem -3.5rem -0.9rem;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(251, 247, 236, 0.97) 0%, rgba(251, 247, 236, 0.95) 62%, rgba(251, 247, 236, 0.6) 82%, rgba(251, 247, 236, 0) 100%);
+}
+.hero .hq-item { text-shadow: 0 0 10px rgba(251, 247, 236, 0.95), 0 0 3px rgba(251, 247, 236, 0.95); }
+.hero .hq-line .hq-text { color: #1d2a22; font-size: 1.2rem; }
+.hero .hq-line .hq-ref { color: #8f3a2f; font-size: 0.74rem; }
+@media (max-width: 700px) {
+  .hero .hq-line { position: relative; }   /* keep the vellum glow on the verse, not across the whole hero */
+  .hero .hq-line::before { inset: -0.8rem -1rem -0.6rem; }
+  .hero .hq-line .hq-text { font-size: 1.2rem; }
+}
